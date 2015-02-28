@@ -1,0 +1,14 @@
+package clases;
+
+import java.util.ArrayList;
+
+public class ListaPeliculasApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<Multimedia> alm=new ArrayList<Multimedia>();
+		Pelicula p1=new Pelicula("titulo1", "autor1", Formatos.DVD, 45, "ramon", null);
+		ListaMultimedia lm=new ListaMultimedia(alm);
+	}
+
+}

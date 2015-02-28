@@ -1,0 +1,98 @@
+package clases;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ListaPeliculasApp{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<Multimedia> alm=new ArrayList<Multimedia>();
+		Pelicula p1=new Pelicula("titulo3", "autor4", Formatos.DVD, 45, "ramon", null);
+		Pelicula p2=new Pelicula("titulo4", "autor1", Formatos.DVD, 20, null, "Maria");
+		Pelicula p3=new Pelicula("titulo2", "autor3", Formatos.AVI, 70, "Lucas", null);
+		Pelicula p4=new Pelicula("titulo3", "autor4", Formatos.WAV, 90, "Jhon", null);
+		Disco d1=new Disco("Pête and the pitos", "will", Generos.FLAMENCO);
+		Disco d2=new Disco("Hopti jop", "flopi", Generos.FUNK);
+		Disco d3=new Disco("Llorar again", "ahinoa", Generos.POP);
+		
+		ListaMultimedia lm=new ListaMultimedia(alm);
+		lm.listamultimedia.add(p1);
+		lm.listamultimedia.add(p2);
+		lm.listamultimedia.add(p3);
+		lm.listamultimedia.add(d1);
+		lm.listamultimedia.add(d2);
+		lm.listamultimedia.add(d3);
+		
+		System.out.println("===============================");
+		System.out.println("==== BUSQUEDA DE PELICULA =====");
+		System.out.println("===============================");
+		BuscarPelicula(p4, lm.listamultimedia);
+		System.out.println("===============================");
+		System.out.println("====== MOSTRAR PELICULAS ======");
+		System.out.println("===============================");
+		mostrarPeliculas(lm.listamultimedia);
+		System.out.println("===============================");
+		System.out.println("======= MOSTRAR DISCOS ========");
+		System.out.println("===============================");
+		mostrarDiscos(lm.listamultimedia);
+		System.out.println("===============================");
+		System.out.println("======= BORRAR PELICULA =======");
+		System.out.println("===============================");
+		EliminarPelicula("titulo2", lm.listamultimedia);
+		System.out.println("===============================");
+		System.out.println("====== MOSTRAR PELICULAS ======");
+		System.out.println("===============================");
+		mostrarPeliculas(lm.listamultimedia);
+		
+		
+		
+	}
+	static void BuscarPelicula(Multimedia p, ArrayList<Multimedia> m){
+		boolean encontrado=false;
+		for (int i = 0; i < m.size(); i++) {
+			if(m.get(i) instanceof Pelicula){
+				if(m.get(i).equals(p))
+					System.out.println("Encontrada");
+					encontrado=true;
+			}
+		}
+		if(!encontrado){
+			System.out.println("No encontrada");
+		}
+	}
+	
+	static void EliminarPelicula(String p, ArrayList<Multimedia> m){
+		boolean encontrado=false;
+		for (int i = 0; i < m.size(); i++) {
+			if(m.get(i) instanceof Pelicula){
+				if(m.get(i).titulo.equals(p))
+					m.remove(i);
+				System.out.println("pelicula borrada");
+				encontrado=true;
+			}
+		}
+		if(!encontrado){
+			System.out.println("No encontrada");
+		}
+	}
+	
+	static void mostrarPeliculas(ArrayList<Multimedia> m){
+		Collections.sort(m,new OrdenDuracion());
+		for (int i = 0; i < m.size(); i++) {
+			if(m.get(i) instanceof Pelicula){
+				System.out.println(m.get(i));
+			}
+		}
+	}
+	
+	static void mostrarDiscos(ArrayList<Multimedia> m){
+		Collections.sort(m,new OrdenDuracion());
+		for (int i = 0; i < m.size(); i++) {
+			if(m.get(i) instanceof Pelicula){
+				System.out.println(m.get(i));
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,9 @@
+package clases;
+
+public class OrdenDuracion {
+
+	public OrdenDuracion() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

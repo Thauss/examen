@@ -1,0 +1,44 @@
+package clases;
+
+public class Pelicula extends Multimedia {
+	private String actorPrincipal, actrizPrincipal;
+
+	public Pelicula(String titulo, String autor, Formatos formato, int duracion, String actorPrincipal, String actrizPrincipal) throws IllegalArgumentException{
+		super(titulo, autor, formato, duracion);
+		if((actorPrincipal==null&&actrizPrincipal==null))
+			throw new IllegalArgumentException("No pueden ser actor y actriz null");
+		else{
+			this. actorPrincipal=actorPrincipal;
+			this.actrizPrincipal=actrizPrincipal;
+		}
+	}
+
+	public Pelicula(String titulo, String autor, String actorPrincipal, String actrizPrincipal) {
+		super(titulo, autor);
+		this. actorPrincipal=actorPrincipal;
+		this.actrizPrincipal=actrizPrincipal;
+	}
+
+	public String getActorPrincipal() {
+		return actorPrincipal;
+	}
+
+	public void setActorPrincipal(String actorPrincipal) {
+		this.actorPrincipal = actorPrincipal;
+	}
+
+	public String getActrizPrincipal() {
+		return actrizPrincipal;
+	}
+
+	public void setActrizPrincipal(String actrizPrincipal) {
+		this.actrizPrincipal = actrizPrincipal;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString()+"Pelicula [actorPrincipal=" + actorPrincipal
+				+ ", actrizPrincipal=" + actrizPrincipal + "]";
+	}
+	
+}

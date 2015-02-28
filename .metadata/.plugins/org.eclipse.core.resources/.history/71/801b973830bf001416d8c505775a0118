@@ -1,0 +1,26 @@
+package clases;
+
+public class Multimedia {
+	protected String titulo,autor;
+	protected Formatos formato;
+	protected int duracion;
+	
+	public Multimedia(String titulo, String autor, Formatos formato,
+			int duracion) {
+		super();
+		this.titulo = titulo;
+		this.autor = autor;
+		this.formato = formato;
+		this.duracion = duracion;
+	}
+	
+	public Multimedia(String titulo, String autor) {
+		super();
+		this.titulo = titulo;
+		this.autor = autor;
+		this.formato = formato.DVD;
+		this.duracion = 90;
+	}
+	
+	
+}
